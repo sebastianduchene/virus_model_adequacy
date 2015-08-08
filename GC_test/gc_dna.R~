@@ -1,0 +1,187 @@
+
+simulate_hetero <- function(ntax = 50, slen = 1000){
+
+
+    # 10 taxa have different base frequencies
+    tr1 <- rtree(ntax - 4)
+    tr1$edge.length <- rlnorm(length(tr1$edge.length), meanlog = -1.5, sd = 0.3)
+    tr1$tip.label <- paste0('A', 1:length(tr1$tip.label))
+    s1 <- simSeq(tr1, l = slen, Q = c(1.34, 4.81, 0.93, 1.24, 5.56, 1), bf = c(0.49, 0.01, 0.01, 0.49))
+#    s1 <- simSeq(tr1, l = slen, Q = c(1.34, 4.81, 0.93, 1.24, 5.56, 1), bf = c(0.01, 0.49, 0.49, 0.01))
+
+    tr2 <- rtree(5)
+    tr2$edge.length <- rlnorm(length(tr2$edge.length), meanlog = -1.5, sd = 0.3)
+    tr2$tip.label <- paste0('B', 1:length(tr2$tip.label))
+    s2 <- simSeq(tr2, l = slen, Q = c(1.34, 4.81, 0.93, 1.24, 5.56, 1), bf = c(0.01, 0.49, 0.49, 0.01), rootseq = as.vector(as.character(as.DNAbin(s1)[1, ]))   )
+
+    tr3 <- bind.tree(tr1, tr2, where = 1)
+
+#    names(s1) <- paste0('t', 1:length(s1))
+#    names(s1) <- paste0('t', length(s1):(length(s1)-1 + length(s2)))
+
+    s3 <- rbind(as.DNAbin(s1)[-1, ], as.DNAbin(s2))
+#    rownames(s3) <- c(paste0('B', 1:(length(s1) - 1)), paste0('B', 1:length(s2)))
+ # Print multinomial likelihood to show that there are differences in the number of site patterns.
+#    print(c(multlik(s3), multlik(as.DNAbin(simSeq(tr3, bf = c(0.1, 0.2, 0.4, 0.3))))))
+
+    return(list(tr3, s3))
+}
+
+
+gc_test <- function(dna_data, parallel = F, nsims = 10, rm_gaps = TRUE, model = NULL){
+    require(phangorn)
+
+    print(dna_data)
+
+    concat_list <- function(c_list){
+        if(length(c_list) == 2 ){
+            return(c(c_list[[1]], c_list[[2]]))
+        }else if(length(c_list) > 2){
+            return(c(c_list[[1]], concat_list(c_list[-1])))
+        }else{
+            return(c_list)
+        }
+    }
+
+    multlik <- function(al){
+        if(class(al) != 'DNAbin') al <- as.DNAbin(al)
+        if(!is.matrix(al)) stop('Please supply the sequences as a matrix')
+        nsites <- ncol(al)
+        al_patterns <- table(sapply(1:nsites, function(x) paste(al[, x], collapse = '')))
+        return(sum(sapply(al_patterns, function(x) (log(x) * x))) - (nsites*log(nsites)))
+    }
+
+    rem_gaps <- function(dna_data){
+        if(!is.matrix(dna_data)){
+            dna_data <- as.DNAbin(dna_data)
+        }
+        has_gap <- function(x){
+            return(!(any(c('a', 'c', 'g', 't') %in% x) & !any(c('-', 'n') %in% x) & length(unique(x)) <= 4))
+        }
+        gap_sites <- sapply(1:ncol(dna_data), function(d) has_gap(as.character(dna_data[, d])))
+        return(dna_data[, !gap_sites])
+    }
+
+    start_tree <- nj(dist.ml(phyDat(dna_data)))
+
+    if(rm_gaps){
+        dna_data <- phyDat(rem_gaps(dna_data))
+    }
+
+    if(is.null(model)) stop('please specify a substitution model. It sholud be one of JC, GTR, GTR+G, GTR+G+I')
+
+    if(model == 'JC'){
+        opt_data <- function(dna_data) optim.pml(pml(tree = start_tree, data = dna_data, k = 1, model = 'JC'), optNni = T, optBf = F, optQ = F, model = 'JC')
+    }else if(model == 'GTR'){
+        opt_data <- function(dna_data) optim.pml(pml(tree = start_tree, data = dna_data, k = 1, model = 'GTR'), optNni = T, optBf = T, optQ = T, model = 'GTR')
+    }else if(model == 'GTR+G'){
+        opt_data <- function(dna_data) optim.pml(pml(tree = start_tree, data = dna_data, k = 4, model = 'GTR'), optNni = T, optBf = T, optQ = T, optGamma = T, model = 'GTR')
+    }else  if(model == 'GTR+G+I'){
+        opt_data <- function(dna_data) optim.pml(pml(tree = start_tree, data = dna_data, k = 4, model = 'GTR'), optNni = T, optBf = T, optQ = T, optGamma = T, model = 'GTR', optInv = T)
+    }else{
+        stop('please specify a substitution model. It sholud be one of JC, GTR, GTR+G, GTR+G+I')
+    }
+
+    s_len <- length(as.DNAbin(dna_data)[1, ])
+
+    get_sim_rep <- function(mle){
+        if(model == 'JC'){
+            sim_dat <- simSeq(mle$tree, l =  s_len)
+            sim_opt <- opt_data(sim_dat)
+        }else if(model == 'GTR'){
+            sim_dat <- simSeq(mle$tree, l = s_len, bf = mle$bf, mle$Q)
+            sim_opt <- opt_data(sim_dat)
+        }else if(model == 'GTR+G'){
+                    rates = phangorn:::discrete.gamma(mle$shape, k = 4)
+                    sim_dat_all<- lapply(rates, function(r) simSeq(mle$tree, l = round(s_len/4, 0), Q = mle$Q, bf = mle$bf, rate = r))
+                    sim_dat <- concat_list(sim_dat_all)
+                    sim_opt <- opt_data(sim_dat)
+                }else if(model == 'GTR+G+I'){
+                    rates = phangorn:::discrete.gamma(mle$shape, k = 4)
+                    ninv <- mle$inv * s_len
+                    nvar <- s_len - ninv
+#
+                    print(c(ninv, nvar))
+#
+                    sim_dat_var <- lapply(rates, function(r) simSeq(mle$tree, l = round(nvar/6, 0), Q = mle$Q, bf = mle$bf, rate = r))
+                    sim_dat_inv <- simSeq(mle$tree, l = round(ninv, 0), Q = mle$Q, bf = mle$bf, rate = 0.0005)
+                    sim_dat_all <- c(sim_dat_var, list(sim_dat_inv))
+                    sim_dat <- concat_list(sim_dat_all)
+
+
+                    sim_opt <- opt_data(sim_dat)
+                }else{
+                    stop('please specify a substitution model. It sholud be one of JC, GTR, GTR+G, GTR+G+I')
+                }
+ #
+        print(sim_dat)
+        print(sim_opt)
+#
+        return(multlik(sim_dat) - sim_opt$logLik)
+    }
+
+    mle_dna_data <- opt_data(dna_data)
+    unc_lik_dna_data <- multlik(dna_data)
+    con_lik_dna_data <- mle_dna_data$logLik
+    delta_stat <- unc_lik_dna_data - con_lik_dna_data
+
+#
+    print(mle_dna_data)
+#
+
+    if(parallel){
+        require(foreach)
+        require(doParallel)
+        cl <- makeCluster(6)
+        registerDoParallel(cl)
+        delta_sims <- foreach(x = 1:nsims, .packages = c('phangorn', 'ape'), .combine = c) %dopar% get_sim_rep(mle_dna_data)
+        stopCluster(cl)
+    }else{
+        delta_sims<- vector()
+        for(i in 1:nsims){
+            delta_sims[i] <- get_sim_rep(mle_dna_data)
+        }
+    }
+
+    return(list(delta_stat, delta_sims, sum(delta_stat > delta_sims) / nsims, mle_dna_data))
+}
+
+
+
+    concat_list <- function(c_list){
+        if(length(c_list) == 2 ){
+            return(c(c_list[[1]], c_list[[2]]))
+        }else if(length(c_list) > 2){
+            return(c(c_list[[1]], concat_list(c_list[-1])))
+        }else{
+            return(c_list)
+        }
+    }
+
+
+    multlik <- function(al){
+        if(class(al) != 'DNAbin') al <- as.DNAbin(al)
+        if(!is.matrix(al)) stop('Please supply the sequences as a matrix')
+        nsites <- ncol(al)
+        al_patterns <- table(sapply(1:nsites, function(x) paste(al[, x], collapse = '')))
+        return(sum(sapply(al_patterns, function(x) (log(x) * x))) - (nsites*log(nsites)))
+    }
+
+
+
+
+library(phangorn)
+library(methods)
+
+args <- commandArgs(trailingOnly = TRUE)
+file_name <- args[1]
+model_run <- args[2]
+
+data_file <- read.phyDat(file_name, format = 'fasta')
+
+run_1 <- gc_test(data_file, parallel = T, nsims = 1000, model = model_run)
+
+out_name <- gsub('[+]', '', paste0(model_run, '_', gsub('[.].*$', '.Rdata',  file_name), collapse = ''))
+print(out_name)
+
+save(run_1, file= out_name)

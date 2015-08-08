@@ -1,0 +1,69 @@
+To conduct the GC test using these scripts you need:
+
+-[R](http://www.r-project.com] with the following packages:
+
+  - APE
+
+  - Phangorn
+
+  - doParallel
+
+  - foreach
+
+The latter two packages allow parallel computation of likelihood optimisation, which makes the analysis much faster. The default is to use 6 processors, but this can be changed according to the system.
+
+The sequence data sholud be in fasta format. Put the data in the same directory as the scripts gc_aa.R and gc_dna.R, and follow these instructions:
+
+- Open a terminal window (in OSX or a Unix-like system), navigate to the folder with the sequence data and the scripts.
+
+- Type the commands below using the example alignments provided, which consist of simulated sequences:
+
+The basic command is:
+Rscript gc_datatype.R alignment.fasta Model. For example, for DNA sequences:
+
+```
+Rscript gc_dna.R sim_jc.fasta GTR
+```
+
+GTR can be substituted by JC or by GTR+G. 
+
+
+For amino acid data:
+
+```
+Rscript gc_aa.R sim_codon.fasta LG
+```
+
+LG can be substituted by LG+G, JTT, or JTT+G. 
+
+The output is an Rdata file with the name of the model used. To see the results, open R and type the code below. For this example I will use the output from the nucleotide model.
+
+
+
+
+```{r}
+library(phangorn)
+load('GTR_sim_jc.Rdata')
+run_1
+```
+
+
+**run_1** is a list with the following items.
+
+  - The delta statistic of the empirical data.
+
+  - The delta statistics for the bootstrap replicates.
+
+  - The **P** value of the delta statistic.
+
+  - The optimised tree in pml format. For details, please see the help file for pml, using **?pml** at the R prompt.
+
+
+## Changing the default settings
+
+To conduct more bootstrap replicates, as used in our paper, open any of the scripts in a text editor and change the n_sims argument of the following line:
+
+run_1 <- gc_test(data_file, parallel = T, nsims = 100, model = model_run)
+
+It is also possible to turn off parallelisation by selecting parallel = F.
+
