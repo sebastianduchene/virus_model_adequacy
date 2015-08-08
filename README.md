@@ -9,5 +9,5 @@ These are the R and Python scripts used for the analyses in **Substitution model
 
 There are different directories to conduct the analyses in the paper, as follows:
 
-- [GC tests](www.eltiempo.com)
+- [GC tests](http://www.eltiempo.com)
  
