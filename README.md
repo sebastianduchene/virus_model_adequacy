@@ -13,3 +13,4 @@ There are different directories to conduct the analyses in the paper, as follows
 
 - [Posterior predictive simulations using the multinomial likelihood and the $chi^2$ test statistics](http://www.eltiempo.com)
 
+$chi^2$
