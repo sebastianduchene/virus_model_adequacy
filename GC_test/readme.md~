@@ -41,21 +41,17 @@ The output is an Rdata file with the name of the model used. To see the results,
 
 
 
+
 ```r
 library(phangorn)
-load('GTR_sim_gc.Rdata')
 ```
 
 ```
-## Warning in readChar(con, 5L, useBytes = TRUE): cannot open compressed file
-## 'GTR_sim_gc.Rdata', probable reason 'No such file or directory'
-```
-
-```
-## Error in readChar(con, 5L, useBytes = TRUE): cannot open the connection
+## Loading required package: ape
 ```
 
 ```r
+load('GTR_sim_jc.Rdata')
 run_1
 ```
 
@@ -99,6 +95,7 @@ run_1
 ## Base frequencies:  
 ## 0.2466399 0.2631685 0.2522741 0.2379175
 ```
+
 
 **run_1** is a list with the following items.
 

@@ -1,6 +1,6 @@
 To conduct the GC test using these scripts you need:
 
--[R](http://www.r-project.com] with the following packages:
+-[R](http://www.r-project.com) with the following packages:
 
   - APE
 

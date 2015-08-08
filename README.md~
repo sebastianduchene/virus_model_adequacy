@@ -11,6 +11,7 @@ There are different directories to conduct the analyses in the paper, as follows
 
 - [Goldman-Cox parametric bootstrap tests, based on maximum likelihood](http://www.eltiempo.com)
 
-- [Posterior predictive simulations using the multinomial likelihood and the chi-squared test statistics](http://www.eltiempo.com)
+- [Posterior predictive simulations for Bayesian Model Averaging and informative priors on the amino acid transition rate matrix](http://www.eltiempo.com)
 
+- [Posterior predictive simulations for codon models](http://www.eltiempo.com)
 
