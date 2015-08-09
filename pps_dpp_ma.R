@@ -79,6 +79,7 @@ pps_ma <- function(log_out, tree_out, s_len, n_samples = 10){
         sampled_tree <- tree_data[[sampled_index]]
 
         gamma_rates <- phangorn:::discrete.gamma(alpha = sampled_alpha, k = 4)
+		print gamma_rates
         simulated_data <- phyDat(concat_list(lapply(gamma_rates, function(x) simSeq(sampled_tree, l = round(al_len / 4, 0), Q = model_list[[sampled_model]][[1]], bf = model_list[[sampled_model]][[2]], type = 'AA'))), type = 'AA')
 #        simulated_data <- phyDat(concat_list(lapply(gamma_rates, function(x) simSeq(sampled_tree, l = 3000, Q = model_list[[sampled_model]][[1]], bf = model_list[[sampled_model]][[2]], type = 'AA'))),type = 'AA' )
 	return(simulated_data)

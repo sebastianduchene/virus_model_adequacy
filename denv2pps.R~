@@ -1,0 +1,8 @@
+library(phangorn)
+source('pps_dpp_ma.R')
+
+emp_data <- read.phyDat('denv_no_outliers_AA.fasta', format = 'fasta', type = 'AA')
+
+
+log_out <- read.table('denv2_dpp.run1.p', head = T, skip = 1)
+tree_out <- read.nexus('denv2_dpp.run1.t')
