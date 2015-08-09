@@ -2,7 +2,7 @@
 
 To conduct these simulations you need:
 
-- (R)[http://www.r-project.com] with the following packages:
+- [R](http://www.r-project.com) with the following packages:
 
       - Phangorn
 
