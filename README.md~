@@ -9,7 +9,7 @@ These are the R and Python scripts used for the analyses in **Substitution model
 
 There are different directories to conduct the analyses in the paper, as follows:
 
-- [Goldman-Cox parametric bootstrap tests, based on maximum likelihood](http://www.eltiempo.com)
+- [Goldman-Cox parametric bootstrap tests, based on maximum likelihood](https://github.com/sebastianduchene/virus_model_adequacy/tree/master/GC_test)
 
 - [Posterior predictive simulations for Bayesian Model Averaging and informative priors on the amino acid transition rate matrix](http://www.eltiempo.com)
 

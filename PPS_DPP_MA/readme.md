@@ -1,0 +1,690 @@
+## Posterior predictive simulations for protein sequence analyses in MrBayes using dirichlet priors and model averaging
+
+To conduct these simulations you need:
+
+    - [R](http://www.r-project.com) with the following packages:
+
+      - Phangorn
+
+
+The script is called *pps_dpp_ma.R*. It contains a set of funcitons so simulate protein data for MrBayes analyses that use model averaging or informative priors on the substitution matrix. The latter approach is basically a GTR matrix with informative priors, as described by Huelsenbeck et al. (2008).
+
+Use the example files in the R prompt as follows:
+
+First load phangorn and the script with the simulation functions.
+
+```r
+library(phangorn)
+source('pps_dpp_ma.R')
+```
+
+Load the data and the posterior samples of trees and parameter estimates for MrBayes. This first example is for Dirichlet priors on the rate matrix. To run a similar analysis refer to the MrBayes manual.
+
+
+```r
+trees_ma<- read.nexus('denv2_dpp.run1.t')
+log_ma <- read.table('denv2_dpp.run1.p', head = T, skip = 1)
+denv_data <- read.phyDat('example_aa_data.fasta', format = 'fasta', type = 'AA')
+```
+
+To obtain the posterior predicive simulations use the function pps_dpp. Then use multlik and homogen_test to calculate the multinomial likelihood and the chi-squared test statistics for every posterior predictive data set. Note that n_samples is the number of posterior predictive data sets to simulate. In practice, about 1000 data sets is useful, but for the purpose of this example we will use 100 only.
+
+```r
+sims_dpp <- pps_dpp(log_out = log_ma, tree_out = trees_ma, s_len = 3391, n_samples = 100)
+```
+
+```
+## [1] "simulating with alpha =  0.170504"
+## 110 sequences with 3388 character and 639 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.139211"
+## 110 sequences with 3388 character and 637 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1517372"
+## 110 sequences with 3388 character and 651 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1319957"
+## 110 sequences with 3388 character and 651 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1572403"
+## 110 sequences with 3388 character and 719 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1213786"
+## 110 sequences with 3388 character and 635 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1321867"
+## 110 sequences with 3388 character and 679 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1432576"
+## 110 sequences with 3388 character and 643 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.08729612"
+## 110 sequences with 3388 character and 605 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1463039"
+## 110 sequences with 3388 character and 635 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1693911"
+## 110 sequences with 3388 character and 705 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1207816"
+## 110 sequences with 3388 character and 633 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1477047"
+## 110 sequences with 3388 character and 621 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1580951"
+## 110 sequences with 3388 character and 636 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1183679"
+## 110 sequences with 3388 character and 579 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1205989"
+## 110 sequences with 3388 character and 608 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1360208"
+## 110 sequences with 3388 character and 649 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1584312"
+## 110 sequences with 3388 character and 681 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1837681"
+## 110 sequences with 3388 character and 669 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1353679"
+## 110 sequences with 3388 character and 630 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1237902"
+## 110 sequences with 3388 character and 658 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1214824"
+## 110 sequences with 3388 character and 682 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1308957"
+## 110 sequences with 3388 character and 613 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1545677"
+## 110 sequences with 3388 character and 699 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1745733"
+## 110 sequences with 3388 character and 629 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1281007"
+## 110 sequences with 3388 character and 602 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1217458"
+## 110 sequences with 3388 character and 651 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1794185"
+## 110 sequences with 3388 character and 660 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1432698"
+## 110 sequences with 3388 character and 645 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.136218"
+## 110 sequences with 3388 character and 640 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.06745992"
+## 110 sequences with 3388 character and 618 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.153197"
+## 110 sequences with 3388 character and 633 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1609063"
+## 110 sequences with 3388 character and 648 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.136191"
+## 110 sequences with 3388 character and 641 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1447886"
+## 110 sequences with 3388 character and 639 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1774449"
+## 110 sequences with 3388 character and 664 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1554192"
+## 110 sequences with 3388 character and 659 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1679204"
+## 110 sequences with 3388 character and 641 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1217688"
+## 110 sequences with 3388 character and 658 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.07727327"
+## 110 sequences with 3388 character and 605 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1769858"
+## 110 sequences with 3388 character and 672 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1778555"
+## 110 sequences with 3388 character and 697 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1470066"
+## 110 sequences with 3388 character and 690 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1259049"
+## 110 sequences with 3388 character and 639 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1849125"
+## 110 sequences with 3388 character and 654 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1278998"
+## 110 sequences with 3388 character and 660 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1504785"
+## 110 sequences with 3388 character and 686 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1444932"
+## 110 sequences with 3388 character and 586 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1441956"
+## 110 sequences with 3388 character and 677 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.146528"
+## 110 sequences with 3388 character and 632 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1433464"
+## 110 sequences with 3388 character and 628 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1589132"
+## 110 sequences with 3388 character and 611 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1203209"
+## 110 sequences with 3388 character and 646 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1203209"
+## 110 sequences with 3388 character and 636 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1564687"
+## 110 sequences with 3388 character and 614 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1487234"
+## 110 sequences with 3388 character and 669 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1331476"
+## 110 sequences with 3388 character and 627 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.152037"
+## 110 sequences with 3388 character and 674 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1348951"
+## 110 sequences with 3388 character and 618 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1465062"
+## 110 sequences with 3388 character and 606 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1119453"
+## 110 sequences with 3388 character and 620 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1200364"
+## 110 sequences with 3388 character and 595 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1414069"
+## 110 sequences with 3388 character and 667 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.153178"
+## 110 sequences with 3388 character and 646 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1338427"
+## 110 sequences with 3388 character and 677 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1697682"
+## 110 sequences with 3388 character and 663 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1432989"
+## 110 sequences with 3388 character and 635 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1589286"
+## 110 sequences with 3388 character and 653 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1667729"
+## 110 sequences with 3388 character and 673 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1765405"
+## 110 sequences with 3388 character and 659 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1813099"
+## 110 sequences with 3388 character and 653 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1296125"
+## 110 sequences with 3388 character and 655 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1344177"
+## 110 sequences with 3388 character and 618 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.109646"
+## 110 sequences with 3388 character and 681 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1776978"
+## 110 sequences with 3388 character and 695 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.13948"
+## 110 sequences with 3388 character and 625 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1204499"
+## 110 sequences with 3388 character and 655 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1039759"
+## 110 sequences with 3388 character and 650 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1773022"
+## 110 sequences with 3388 character and 670 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1185818"
+## 110 sequences with 3388 character and 651 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1451458"
+## 110 sequences with 3388 character and 628 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1656488"
+## 110 sequences with 3388 character and 662 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1631109"
+## 110 sequences with 3388 character and 640 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1452744"
+## 110 sequences with 3388 character and 626 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1478395"
+## 110 sequences with 3388 character and 648 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1346438"
+## 110 sequences with 3388 character and 613 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1783448"
+## 110 sequences with 3388 character and 650 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1210798"
+## 110 sequences with 3388 character and 638 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1210167"
+## 110 sequences with 3388 character and 731 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1632972"
+## 110 sequences with 3388 character and 686 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1664898"
+## 110 sequences with 3388 character and 662 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1335945"
+## 110 sequences with 3388 character and 637 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1089033"
+## 110 sequences with 3388 character and 612 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1416544"
+## 110 sequences with 3388 character and 597 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1445125"
+## 110 sequences with 3388 character and 637 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1514411"
+## 110 sequences with 3388 character and 636 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1386196"
+## 110 sequences with 3388 character and 636 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1669939"
+## 110 sequences with 3388 character and 648 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1252366"
+## 110 sequences with 3388 character and 683 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulating with alpha =  0.1701593"
+## 110 sequences with 3388 character and 648 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v
+```
+
+```r
+sims_multlik <- sapply(sims_dpp, function(x) multlik(x))
+sims_chisq <- sapply(sims_dpp, function(x) homogen_test(x))
+```
+The P values can be calculated as follows:
+
+```r
+# For the multinomial likelihood
+pval_multlik <- sum(sims_multlik > multlik(denv_data)) / length(sims_dpp)
+print(pval_multlik)
+```
+
+```
+## [1] 0.64
+```
+
+```r
+# For the chi-squared
+pval_chisq <- sum(sims_chisq > homogen_test(denv_data)) / length(sims_dpp)
+print(pval_chisq)
+```
+
+```
+## [1] 0.38
+```
+
+For model averaging, we can use a similar procedure. The log file sholud be like that shown here.
+
+
+```r
+trees_ma <- read.nexus('denv2_MA.run1.t')
+log_ma <- read.table('denv2_MA.run1.p', head = T, skip = 1)
+
+sims_ma <- pps_ma(log_out = log_ma, tree_out = trees_ma, s_len = 3391, n_samples = 100)
+```
+
+```
+## [1] "simulated with settings 1634000 -17908.83 733.5583 0.2997991 0.1027881 1"
+## 110 sequences with 3392 character and 865 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2048500 -17912.11 733.6556 0.2996645 0.1025421 1"
+## 110 sequences with 3392 character and 911 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1215000 -17935.58 735.7994 0.2966951 0.1100538 1"
+## 110 sequences with 3392 character and 868 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1332000 -17925.12 732.5864 0.301108 0.1335947 1"
+## 110 sequences with 3392 character and 887 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 774500 -17926 724.5602 0.3126565 0.02923486 1"
+## 110 sequences with 3392 character and 912 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 363500 -17932.77 740.4416 0.2904262 0.081288 1"
+## 110 sequences with 3392 character and 849 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1433500 -17938.91 748.4091 0.2799317 0.06442264 1"
+## 110 sequences with 3392 character and 813 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1974000 -17939.24 732.2311 0.3016115 0.1279827 1"
+## 110 sequences with 3392 character and 854 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 368500 -17912.69 735.6011 0.2969967 0.08880667 1"
+## 110 sequences with 3392 character and 899 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1060000 -17926.67 725.2067 0.3115698 0.1349438 1"
+## 110 sequences with 3392 character and 906 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 436500 -17927.96 728.4578 0.3068902 0.1530907 1"
+## 110 sequences with 3392 character and 889 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1312500 -17943.95 725.0198 0.3118728 0.1117455 1"
+## 110 sequences with 3392 character and 952 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1024000 -17928.54 739.185 0.292053 0.1311834 1"
+## 110 sequences with 3392 character and 836 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2207500 -17926.58 720.7585 0.31804 0.1428162 1"
+## 110 sequences with 3392 character and 919 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1730500 -17929.56 733.9802 0.2992188 0.09944979 1"
+## 110 sequences with 3392 character and 886 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 282000 -17931.56 726.4062 0.3098595 0.1245452 1"
+## 110 sequences with 3392 character and 883 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1675000 -17936.12 737.9912 0.2936745 0.1289037 1"
+## 110 sequences with 3392 character and 905 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1471500 -17925.47 726.6202 0.3095445 0.130196 1"
+## 110 sequences with 3392 character and 867 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1436000 -17956.14 729.7752 0.3050989 0.1003061 1"
+## 110 sequences with 3392 character and 902 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2305000 -17926.42 735.6162 0.29694 0.1150296 1"
+## 110 sequences with 3392 character and 874 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 939500 -17912.01 719.3744 0.3200833 0.1433816 1"
+## 110 sequences with 3392 character and 965 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 731500 -17924.31 735.4888 0.2971648 0.07886187 1"
+## 110 sequences with 3392 character and 902 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 638500 -17919.01 740.3298 0.2905379 0.1100556 1"
+## 110 sequences with 3392 character and 849 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1845000 -17950.22 736.1075 0.2962794 0.1048682 1"
+## 110 sequences with 3392 character and 853 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1825000 -17918.93 726.987 0.3090319 0.1214779 1"
+## 110 sequences with 3392 character and 941 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 122500 -17934.13 741.5326 0.2889588 0.08453861 1"
+## 110 sequences with 3392 character and 859 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1352500 -17927.26 735.8285 0.2966729 0.09712248 1"
+## 110 sequences with 3392 character and 901 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 471000 -17938.62 744.1836 0.2854362 0.08327859 1"
+## 110 sequences with 3392 character and 829 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1993500 -17902.73 746.3014 0.2827514 0.00699277 1"
+## 110 sequences with 3392 character and 864 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2058500 -17926.05 727.3892 0.3084909 0.09783454 1"
+## 110 sequences with 3392 character and 921 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1670500 -17930.27 735.7371 0.2967602 0.1249506 1"
+## 110 sequences with 3392 character and 867 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1073000 -17932.5 741.1269 0.2894415 0.1296843 1"
+## 110 sequences with 3392 character and 915 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1774500 -17934.57 733.7123 0.2995675 0.1157703 1"
+## 110 sequences with 3392 character and 889 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 931500 -17943.92 750.8234 0.2767432 0.1248872 1"
+## 110 sequences with 3392 character and 816 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1665500 -17913.81 725.3739 0.3113701 0.1061506 1"
+## 110 sequences with 3392 character and 904 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 176500 -17931.3 737.6674 0.2940989 0.1407372 1"
+## 110 sequences with 3392 character and 858 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 3000 -19123.06 683.7296 0.3775662 0.1069986 1"
+## 110 sequences with 3392 character and 1056 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 246500 -17941.59 736.1685 0.2961721 0.1220192 1"
+## 110 sequences with 3392 character and 905 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 653000 -17929.46 729.4543 0.3055341 0.1133155 1"
+## 110 sequences with 3392 character and 902 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2156000 -17926.63 737.0473 0.2950342 0.07490508 1"
+## 110 sequences with 3392 character and 876 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1234000 -17931.52 733.5561 0.2998393 0.07603933 1"
+## 110 sequences with 3392 character and 920 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2179500 -17950.37 719.9516 0.3192678 0.1173844 1"
+## 110 sequences with 3392 character and 978 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 483500 -17925.93 732.668 0.3010053 0.1257309 1"
+## 110 sequences with 3392 character and 864 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1905000 -17920.82 723.3424 0.3142776 0.1298487 1"
+## 110 sequences with 3392 character and 882 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 664500 -17928.39 746.3678 0.2825283 0.1111708 1"
+## 110 sequences with 3392 character and 841 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1782500 -17929.42 733.1837 0.3003716 0.06523542 1"
+## 110 sequences with 3392 character and 909 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 486000 -17941.7 732.8412 0.3007255 0.1533537 1"
+## 110 sequences with 3392 character and 893 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1566500 -17939.07 738.6812 0.2927427 0.1254137 1"
+## 110 sequences with 3392 character and 816 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 775000 -17914.35 753.4164 0.2734845 0.09074613 1"
+## 110 sequences with 3392 character and 867 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1783000 -17920.45 743.533 0.2862543 0.1155216 1"
+## 110 sequences with 3392 character and 886 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1045500 -17919.13 731.1913 0.3031012 0.1033819 1"
+## 110 sequences with 3392 character and 875 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1922000 -17937.73 733.4745 0.299934 0.08941105 1"
+## 110 sequences with 3392 character and 933 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1378500 -17932.22 752.4057 0.2747671 0.09063489 1"
+## 110 sequences with 3392 character and 837 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1831500 -17925.26 729.2585 0.3058419 0.09160178 1"
+## 110 sequences with 3392 character and 959 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1446000 -17939.64 732.9098 0.3006897 0.1104711 1"
+## 110 sequences with 3392 character and 866 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1966000 -17946.34 736.0646 0.2963226 0.1161914 1"
+## 110 sequences with 3392 character and 886 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 720500 -17927.28 736.9304 0.2951332 0.1192629 1"
+## 110 sequences with 3392 character and 923 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1282000 -17919.23 744.9078 0.2844668 0.09392887 1"
+## 110 sequences with 3392 character and 841 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1062500 -17929.35 724.7044 0.3123605 0.08968228 1"
+## 110 sequences with 3392 character and 896 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1134500 -17924.76 737.5008 0.2943599 0.1157389 1"
+## 110 sequences with 3392 character and 865 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1336500 -17931.93 742.5124 0.2876423 0.09117762 1"
+## 110 sequences with 3392 character and 829 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1101500 -17926.22 739.793 0.2912623 0.1087811 1"
+## 110 sequences with 3392 character and 914 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2172000 -17922.27 751.6221 0.2758016 0.06240695 1"
+## 110 sequences with 3392 character and 840 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1846000 -17946.54 743.2842 0.2866136 0.09337763 1"
+## 110 sequences with 3392 character and 870 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1808500 -17914.53 745.9125 0.283139 0.09995876 1"
+## 110 sequences with 3392 character and 860 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 433500 -17923.98 736.719 0.2955128 0.05304041 1"
+## 110 sequences with 3392 character and 898 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 421000 -17929.59 728.7826 0.3065357 0.0779363 1"
+## 110 sequences with 3392 character and 898 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2217000 -17944.48 735.5297 0.2970784 0.1007654 1"
+## 110 sequences with 3392 character and 902 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1610000 -17931.15 728.7962 0.3064732 0.1083446 1"
+## 110 sequences with 3392 character and 887 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1927000 -17928.52 742.7764 0.2872465 0.1246958 1"
+## 110 sequences with 3392 character and 866 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1683000 -17934.28 725.7876 0.3107509 0.1225537 1"
+## 110 sequences with 3392 character and 888 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 807500 -17936.5 728.3608 0.3070723 0.1219056 1"
+## 110 sequences with 3392 character and 907 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1790000 -17931.05 741.7146 0.288742 0.06461392 1"
+## 110 sequences with 3392 character and 852 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1835500 -17938.68 748.8833 0.2792817 0.09245241 1"
+## 110 sequences with 3392 character and 855 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1975500 -17944.65 755.3845 0.2709921 0.1004121 1"
+## 110 sequences with 3392 character and 790 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 447500 -17931.02 723.1022 0.314689 0.08740069 1"
+## 110 sequences with 3392 character and 930 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1082000 -17924.91 734.1654 0.299012 0.06365202 1"
+## 110 sequences with 3392 character and 874 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 32500 -17927.62 748.7828 0.2793658 0.1278814 1"
+## 110 sequences with 3392 character and 797 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 536000 -17925.7 733.3788 0.3000332 0.1136804 1"
+## 110 sequences with 3392 character and 908 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 538500 -17929.46 729.7627 0.305071 0.1325211 1"
+## 110 sequences with 3392 character and 939 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 388500 -17920.47 737.9286 0.2937716 0.1201137 1"
+## 110 sequences with 3392 character and 864 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 562000 -17930.37 739.676 0.2914604 0.07893615 1"
+## 110 sequences with 3392 character and 865 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 755000 -17919.57 746.4345 0.2824673 0.09109565 1"
+## 110 sequences with 3392 character and 846 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 445500 -17938.81 719.2324 0.3202847 0.1495782 1"
+## 110 sequences with 3392 character and 937 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1134000 -17921.6 736.3847 0.2958825 0.1172026 1"
+## 110 sequences with 3392 character and 864 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 437500 -17947.91 722.0199 0.3162564 0.09637052 1"
+## 110 sequences with 3392 character and 920 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1060500 -17934.87 724.8155 0.3121653 0.1136226 1"
+## 110 sequences with 3392 character and 947 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 169500 -17923.66 731.8891 0.3020749 0.1382638 1"
+## 110 sequences with 3392 character and 907 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 612500 -17944.97 733.9654 0.2992349 0.102648 1"
+## 110 sequences with 3392 character and 929 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 131500 -17931.1 716.7377 0.3240089 0.1467752 1"
+## 110 sequences with 3392 character and 901 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2218000 -17934.77 739.3002 0.2919554 0.0881716 1"
+## 110 sequences with 3392 character and 859 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 856000 -17953.56 735.6045 0.2970864 0.02022192 1"
+## 110 sequences with 3392 character and 866 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2026500 -17922.2 720.8154 0.3180087 0.1072371 1"
+## 110 sequences with 3392 character and 904 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 236500 -17931.66 733.2585 0.3002351 0.08863849 1"
+## 110 sequences with 3392 character and 906 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1198500 -17930.51 713.1438 0.3294651 0.1330235 1"
+## 110 sequences with 3392 character and 975 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 594500 -17926.81 729.3401 0.3056944 0.1141496 1"
+## 110 sequences with 3392 character and 890 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 2249000 -17948.76 749.959 0.2778867 0.09856504 1"
+## 110 sequences with 3392 character and 847 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 24000 -17931.14 730.9866 0.3034451 0.06311273 1"
+## 110 sequences with 3392 character and 902 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1421000 -17929.96 739.4099 0.2917775 0.110197 1"
+## 110 sequences with 3392 character and 866 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v 
+## [1] "simulated with settings 1932500 -17918.02 738.3381 0.2931886 0.1397207 1"
+## 110 sequences with 3392 character and 852 different site patterns.
+## The states are a r n d c q e g h i l k m f p s t w y v
+```
+
+```r
+sims_multlik <- sapply(sims_ma, function(x) multlik(x))
+sims_chisq <- sapply(sims_ma, function(x) homogen_test(x))
+
+pval_multlik <- sum(sims_multlik > multlik(denv_data)) / length(sims_ma)
+pval_chisq <- sum(sims_chisq > homogen_test(denv_data)) / length(sims_ma)
+```
+
+
+
+## References
+
+Huelsenbeck, J. P., Joyce, P., Lakner, C., & Ronquist, F. (2008). Bayesian analysis of amino acid substitution models. Philosophical Transactions of the Royal Society B: Biological Sciences, 363(1512), 3941-3953.
