@@ -1,0 +1,137 @@
+#NEXUS
+[Data written by write.nexus.data.R, Mon Aug 10 10:01:27 2015]
+BEGIN DATA;
+  DIMENSIONS NTAX=30 NCHAR=270;
+  FORMAT DATATYPE=DNA MISSING=? GAP=- INTERLEAVE=YES;
+  MATRIX
+    AB122020|DENV2|DominicanRepublic|2001|      atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    FJ898453|DENV2|VirginIsland|2005|           atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    EU920838|DENV2|Suriname|2005|               atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    EU920844|DENV2|FrenchGuiana|2006|           atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    GQ868549|DENV2|Brazil|2008|                 atgaataaccaacggaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    JX286517|DENV2|Brazil|2010|                 atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    GQ199892|DENV2|Jamaica|2007|                atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    GQ199890|DENV2|Brazil|2008|                 atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    KC294202|DENV2|Peru|2010|                   atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    KC294212|DENV2|Peru|2011|                   atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    JX669476|DENV2|Brazil|2010|                 atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    FJ898451|DENV2|DominicanRepublic|2003|      atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    EU920836|DENV2|Martinique|2005|             atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    EU920849|DENV2|Guadeloupe|2006|             atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    AF208496|DENV2|Martinique|1998|             atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    AY702039|DENV2|Cuba|1997|                   atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    FJ898460|DENV2|SaintKitts|2001|             atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    EU726775|DENV2|Venezuela|1996|              atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    GQ868553|DENV2|Colombia|1999|               atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    EU920828|DENV2|FrenchGuiana|1993|           atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    KJ189305|DENV2|Colombia|2000|               atgaataaccaacggaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    FJ744705|DENV2|Nicaragua|2000|              atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    GQ199895|DENV2|Nicaragua|1999|              atgaataaccaacggaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    GQ199893|DENV2|Mexico|2002|                 atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    GU369819|DENV2|Mexico|2005|                 atgaataaccaacggaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    FJ898461|DENV2|Belize|2002|                 atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    GU131955|DENV2|Mexico|2004|                 atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    FJ898439|DENV2|Mexico|2008|                 atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    EU920829|DENV2|FrenchGuiana|1997|           atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+    FJ205885|DENV2|Nicaragua|2008|              atgaataaccaacgaaaaaaggcgagaagtacgcctttcaatatgctgaaacgcgagagaaaccgcgtgtcaactgtgca
+
+    AB122020|DENV2|DominicanRepublic|2001|      acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    FJ898453|DENV2|VirginIsland|2005|           acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    EU920838|DENV2|Suriname|2005|               acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    EU920844|DENV2|FrenchGuiana|2006|           acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    GQ868549|DENV2|Brazil|2008|                 acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    JX286517|DENV2|Brazil|2010|                 acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    GQ199892|DENV2|Jamaica|2007|                acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    GQ199890|DENV2|Brazil|2008|                 acagctgacaaagagattctcacttgggatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    KC294202|DENV2|Peru|2010|                   acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcattcc
+    KC294212|DENV2|Peru|2011|                   acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcattcc
+    JX669476|DENV2|Brazil|2010|                 acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    FJ898451|DENV2|DominicanRepublic|2003|      acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    EU920836|DENV2|Martinique|2005|             acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    EU920849|DENV2|Guadeloupe|2006|             acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    AF208496|DENV2|Martinique|1998|             acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    AY702039|DENV2|Cuba|1997|                   acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    FJ898460|DENV2|SaintKitts|2001|             acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    EU726775|DENV2|Venezuela|1996|              acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    GQ868553|DENV2|Colombia|1999|               acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    EU920828|DENV2|FrenchGuiana|1993|           acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    KJ189305|DENV2|Colombia|2000|               acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    FJ744705|DENV2|Nicaragua|2000|              acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaagctgttcatggcccttgtggcgttcc
+    GQ199895|DENV2|Nicaragua|1999|              acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    GQ199893|DENV2|Mexico|2002|                 acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    GU369819|DENV2|Mexico|2005|                 acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    FJ898461|DENV2|Belize|2002|                 acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+    GU131955|DENV2|Mexico|2004|                 acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcctttgtggcgttcc
+    FJ898439|DENV2|Mexico|2008|                 acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcctttgtggcgttcc
+    EU920829|DENV2|FrenchGuiana|1997|           acagctgacaaagagattctcacttggaatgctgcaaggacgaggaccattaaaactgttcatggcccttgtggcgttcc
+    FJ205885|DENV2|Nicaragua|2008|              acagctgacaaagagattctcacttggaatgctgcaaggacgcggaccattaaaactgttcatggcccttgtggcgttcc
+
+    AB122020|DENV2|DominicanRepublic|2001|      ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    FJ898453|DENV2|VirginIsland|2005|           ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    EU920838|DENV2|Suriname|2005|               ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    EU920844|DENV2|FrenchGuiana|2006|           ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    GQ868549|DENV2|Brazil|2008|                 ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    JX286517|DENV2|Brazil|2010|                 ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    GQ199892|DENV2|Jamaica|2007|                ttcgtttcctaacaatcccaccaacagcagggatactgaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    GQ199890|DENV2|Brazil|2008|                 ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    KC294202|DENV2|Peru|2010|                   ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    KC294212|DENV2|Peru|2011|                   ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    JX669476|DENV2|Brazil|2010|                 ttcgtttcctaacactcccaccaacagcggggatactaaaaagatggggaacgatcaagaaatcaaaagctatcaatgtt
+    FJ898451|DENV2|DominicanRepublic|2003|      ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    EU920836|DENV2|Martinique|2005|             ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    EU920849|DENV2|Guadeloupe|2006|             ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    AF208496|DENV2|Martinique|1998|             ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    AY702039|DENV2|Cuba|1997|                   ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    FJ898460|DENV2|SaintKitts|2001|             ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    EU726775|DENV2|Venezuela|1996|              ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    GQ868553|DENV2|Colombia|1999|               ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    EU920828|DENV2|FrenchGuiana|1993|           ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    KJ189305|DENV2|Colombia|2000|               ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    FJ744705|DENV2|Nicaragua|2000|              ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    GQ199895|DENV2|Nicaragua|1999|              ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    GQ199893|DENV2|Mexico|2002|                 ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtc
+    GU369819|DENV2|Mexico|2005|                 ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    FJ898461|DENV2|Belize|2002|                 ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    GU131955|DENV2|Mexico|2004|                 ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    FJ898439|DENV2|Mexico|2008|                 ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    EU920829|DENV2|FrenchGuiana|1997|           ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+    FJ205885|DENV2|Nicaragua|2008|              ttcgtttcctaacaatcccaccaacagcagggatactaaaaagatggggaacgatcaaaaaatcaaaagctatcaatgtt
+
+    AB122020|DENV2|DominicanRepublic|2001|      ttgagagggttcaggaaagagattggaagg
+    FJ898453|DENV2|VirginIsland|2005|           ttgagagggttcaggaaagagattggaagg
+    EU920838|DENV2|Suriname|2005|               ttgagagggttcaggaaagagattggaagg
+    EU920844|DENV2|FrenchGuiana|2006|           ttgagagggttcaggaaagagattggaagg
+    GQ868549|DENV2|Brazil|2008|                 ttgagagggttcaggaaagagattggaagg
+    JX286517|DENV2|Brazil|2010|                 ttgagagggttcaggaaagagattggaagg
+    GQ199892|DENV2|Jamaica|2007|                ttgagagggttcaggaaagagattggaagg
+    GQ199890|DENV2|Brazil|2008|                 ttgagagggttcaggaaagagattggaagg
+    KC294202|DENV2|Peru|2010|                   ctgagagggttcaggaaagagattggaagg
+    KC294212|DENV2|Peru|2011|                   ctgagagggttcaggaaagagattggaagg
+    JX669476|DENV2|Brazil|2010|                 ttgagagggttcaggaaagagattggaagg
+    FJ898451|DENV2|DominicanRepublic|2003|      ttgagagggttcaggaaagagattggaagg
+    EU920836|DENV2|Martinique|2005|             ttgagagggttcaggaaagagattggaaag
+    EU920849|DENV2|Guadeloupe|2006|             ttgagagggttcaggaaagagattggaaag
+    AF208496|DENV2|Martinique|1998|             ttgagagggttcaggaaagagattggaagg
+    AY702039|DENV2|Cuba|1997|                   ttgagagggttcaggaaagagattggaagg
+    FJ898460|DENV2|SaintKitts|2001|             ttgagagggttcagaaaagagattggaagg
+    EU726775|DENV2|Venezuela|1996|              ttgagagggttcaggaaagagattggaagg
+    GQ868553|DENV2|Colombia|1999|               ttgagagggttcaggaaagagattggaagg
+    EU920828|DENV2|FrenchGuiana|1993|           ttgagagggttcaggaaagagattggaagg
+    KJ189305|DENV2|Colombia|2000|               ttgagagggttcaggaaagagattggaagg
+    FJ744705|DENV2|Nicaragua|2000|              ttgagagggttcaggaaagagattggaagg
+    GQ199895|DENV2|Nicaragua|1999|              ttgagagggttcaggaaagagattggaagg
+    GQ199893|DENV2|Mexico|2002|                 ttgagagggttcaggaaagagattggaagg
+    GU369819|DENV2|Mexico|2005|                 ttgagagggttcaggaaagagattggaagg
+    FJ898461|DENV2|Belize|2002|                 ttgagagggttcaggaaagagattggaagg
+    GU131955|DENV2|Mexico|2004|                 ttgagagggttcaggaaagagattggaagg
+    FJ898439|DENV2|Mexico|2008|                 ttgagagggttcaggaaagagattggaagg
+    EU920829|DENV2|FrenchGuiana|1997|           ttgagagggttcaggaaagagattggaagg
+    FJ205885|DENV2|Nicaragua|2008|              ttgagagggttcaggaaagagattggaagg
+  ;
+END;
+
+Begin MrBayes;
+lset nucmodel=codon omegavar=M3;
+mcmcp printfreq = 10 ngen = 50000000;
+mcmc nchains=2
+end;

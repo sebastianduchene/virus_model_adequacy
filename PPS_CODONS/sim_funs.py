@@ -104,7 +104,7 @@ def fix_tree(tree):
     for edge in tr.postorder_edge_iter():
         if not edge.length is None:
             edge.length = edge.length * 3
-    return tr.as_string(schema = 'newick')
+    return re.sub('[[]&U[]]', '', tr.as_string(schema = 'newick'))
 
 #
 def find_tree(target_tree, tree_list, sch1 = 'newick', sch2 = 'nexus'):
