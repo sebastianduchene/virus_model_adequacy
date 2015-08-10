@@ -27,14 +27,14 @@ sim_data <- function(tr, q, bf, rates, l){
     return(concat_list(s))
 }
 
-s <- sim_data(tr, qmat, freqs, g_cats, 200)
 
 # Simulate gtr+g long trees, all the same tree
 
 for(i in 1:10){
     tr <- rtree(50)
-    tr$edge.length <- rlnorm(length(tr$edge.length), meanlog = -1.7, sdlog = 0.5)
+    tr$edge.length <- rlnorm(length(tr$edge.length), meanlog = -1.0, sdlog = 0.5)
     sum(tr$edge.length)
+    s <- sim_data(tr, qmat, freqs, g_cats, 200)
     write.tree(tr, file = paste('sim_', i, '.tree', sep = ''))
     write.dna(s, file  = paste('sim_', i, '.fasta', sep = ''), format = 'fasta')
 }
