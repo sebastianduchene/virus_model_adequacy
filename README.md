@@ -15,3 +15,4 @@ There are different directories to conduct the analyses in the paper, as follows
 
 - [Posterior predictive simulations for codon models](https://github.com/sebastianduchene/virus_model_adequacy/blob/master/PPS_CODONS/Readme.md)
 
+The data sets used in the study are available [here](https://github.com/sebastianduchene/virus_model_adequacy/blob/master/data_sets)
