@@ -13,5 +13,5 @@ There are different directories to conduct the analyses in the paper, as follows
 
 - [Posterior predictive simulations for Bayesian Model Averaging and informative priors on the amino acid transition rate matrix](https://github.com/sebastianduchene/virus_model_adequacy/tree/master/PPS_DPP_MA)
 
-- [Posterior predictive simulations for codon models](http://www.eltiempo.com)
+- [Posterior predictive simulations for codon models](https://github.com/sebastianduchene/virus_model_adequacy/blob/master/PPS_CODONS/Readme.md)
 

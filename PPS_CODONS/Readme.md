@@ -12,6 +12,6 @@ To replicate these analyses you need:
     
     - [pyvolve](http://sjspielman.org/pyvolve/)
     
-There are a few steps to these analyses, which I have explained in [this Ipython notebook](). The first requirement, however, is to analyse the data using a codon model in MrBayes, in this paper we have used the M3 model, but there are others available. An example input file for MrBayes in nexus format can be found [here](https://raw.githubusercontent.com/sebastianduchene/virus_model_adequacy/master/PPS_CODONS/example_M3_run.nexus).
+There are a few steps to these analyses, which I have explained in [this Ipython notebook](https://github.com/sebastianduchene/virus_model_adequacy/blob/master/PPS_CODONS/PPS_codon_models.ipynb). The first requirement, however, is to analyse the data using a codon model in MrBayes, in this paper we have used the M3 model, but there are others available. An example input file for MrBayes in nexus format can be found [here](https://raw.githubusercontent.com/sebastianduchene/virus_model_adequacy/master/PPS_CODONS/example_M3_run.nexus).
 
 
