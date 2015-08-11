@@ -1,0 +1,360 @@
+Loading required package: ape
+
+Attaching package: ‘phangorn’
+
+The following object is masked from ‘package:ape’:
+
+    as.prop.part
+
+50 sequences with 200 character and 192 different site patterns.
+The states are a c g t 
+optimize edge weights:  -7819.806 --> -7756.444 
+optimize base frequencies:  -7756.444 --> -7236.272 
+optimize rate matrix:  -7236.272 --> -7158.187 
+optimize shape parameter:  -7158.187 --> -7156.932 
+optimize edge weights:  -7156.932 --> -7117.733 
+optimize topology:  -7117.733 --> -7110.701 
+optimize topology:  -7110.701 --> -7101.378 
+optimize topology:  -7101.378 --> -7100.796 
+7 
+optimize base frequencies:  -7100.796 --> -7087.901 
+optimize rate matrix:  -7087.901 --> -7077.276 
+optimize shape parameter:  -7077.276 --> -7075.879 
+optimize edge weights:  -7075.879 --> -7075.179 
+optimize topology:  -7075.179 --> -7075.178 
+0 
+optimize base frequencies:  -7075.178 --> -7072.901 
+optimize rate matrix:  -7072.901 --> -7072.264 
+optimize shape parameter:  -7072.264 --> -7072.25 
+optimize edge weights:  -7072.25 --> -7072.199 
+optimize base frequencies:  -7072.199 --> -7071.986 
+optimize rate matrix:  -7071.986 --> -7071.913 
+optimize shape parameter:  -7071.913 --> -7071.913 
+optimize edge weights:  -7071.913 --> -7071.907 
+optimize base frequencies:  -7071.907 --> -7071.884 
+optimize rate matrix:  -7071.884 --> -7071.877 
+optimize shape parameter:  -7071.877 --> -7071.877 
+optimize edge weights:  -7071.877 --> -7071.876 
+optimize base frequencies:  -7071.876 --> -7071.873 
+Loading required package: ape
+optimize rate matrix:  -7071.873 --> -7071.873 
+optimize shape parameter:  -7071.873 --> -7071.873 
+optimize edge weights:  -7071.873 --> -7071.873 
+optimize base frequencies:  -7071.873 --> -7071.872 
+optimize rate matrix:  -7071.872 --> -7071.872 
+optimize shape parameter:  -7071.872 --> -7071.872 
+optimize edge weights:  -7071.872 --> -7071.872 
+optimize base frequencies:  -7071.872 --> -7071.872 
+optimize rate matrix:  -7071.872 --> -7071.872 
+optimize shape parameter:  -7071.872 --> -7071.872 
+optimize edge weights:  -7071.872 --> -7071.872 
+
+ loglikelihood: -7071.872 
+
+unconstrained loglikelihood: -1044.685 
+Discrete gamma model
+Number of rate categories: 4 
+Shape parameter: 0.946136 
+
+Rate matrix:
+           a          c         g         t
+a 0.00000000 0.06714888 0.2577305 0.3906913
+c 0.06714888 0.00000000 0.3793347 0.7382063
+g 0.25773053 0.37933470 0.0000000 1.0000000
+t 0.39069131 0.73820626 1.0000000 0.0000000
+
+Base frequencies:  
+0.4094311 0.0920065 0.08239535 0.416167 
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+
+Attaching package: ‘phangorn’
+
+The following object is masked from ‘package:ape’:
+
+    as.prop.part
+
+50 sequences with 200 character and 192 different site patterns.
+The states are a c g t 
+optimize edge weights:  -7819.806 --> -7756.444 
+optimize base frequencies:  -7756.444 --> -7236.272 
+optimize rate matrix:  -7236.272 --> -7158.187 
+optimize shape parameter:  -7158.187 --> -7156.932 
+optimize edge weights:  -7156.932 --> -7117.733 
+optimize topology:  -7117.733 --> -7110.701 
+optimize topology:  -7110.701 --> -7101.378 
+optimize topology:  -7101.378 --> -7100.796 
+7 
+optimize base frequencies:  -7100.796 --> -7087.901 
+optimize rate matrix:  -7087.901 --> -7077.276 
+optimize shape parameter:  -7077.276 --> -7075.879 
+optimize edge weights:  -7075.879 --> -7075.179 
+optimize topology:  -7075.179 --> -7075.178 
+0 
+optimize base frequencies:  -7075.178 --> -7072.901 
+optimize rate matrix:  -7072.901 --> -7072.264 
+optimize shape parameter:  -7072.264 --> -7072.25 
+optimize edge weights:  -7072.25 --> -7072.199 
+optimize base frequencies:  -7072.199 --> -7071.986 
+optimize rate matrix:  -7071.986 --> -7071.913 
+optimize shape parameter:  -7071.913 --> -7071.913 
+optimize edge weights:  -7071.913 --> -7071.907 
+optimize base frequencies:  -7071.907 --> -7071.884 
+optimize rate matrix:  -7071.884 --> -7071.877 
+optimize shape parameter:  -7071.877 --> -7071.877 
+optimize edge weights:  -7071.877 --> -7071.876 
+optimize base frequencies:  -7071.876 --> -7071.873 
+optimize rate matrix:  -7071.873 --> -7071.873 
+optimize shape parameter:  -7071.873 --> -7071.873 
+optimize edge weights:  -7071.873 --> -7071.873 
+optimize base frequencies:  -7071.873 --> -7071.872 
+optimize rate matrix:  -7071.872 --> -7071.872 
+optimize shape parameter:  -7071.872 --> -7071.872 
+optimize edge weights:  -7071.872 --> -7071.872 
+optimize base frequencies:  -7071.872 --> -7071.872 
+optimize rate matrix:  -7071.872 --> -7071.872 
+optimize shape parameter:  -7071.872 --> -7071.872 
+optimize edge weights:  -7071.872 --> -7071.872 
+
+ loglikelihood: -7071.872 
+
+unconstrained loglikelihood: -1044.685 
+Discrete gamma model
+Number of rate categories: 4 
+Shape parameter: 0.946136 
+
+Rate matrix:
+           a          c         g         t
+a 0.00000000 0.06714888 0.2577305 0.3906913
+c 0.06714888 0.00000000 0.3793347 0.7382063
+g 0.25773053 0.37933470 0.0000000 1.0000000
+t 0.39069131 0.73820626 1.0000000 0.0000000
+
+Base frequencies:  
+0.4094311 0.0920065 0.08239535 0.416167 
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+[1] "GTRG_sim_1.Rdata"
+[1] "GTRG_sim_2.Rdata"
+Loading required package: ape
+
+Attaching package: ‘phangorn’
+
+The following object is masked from ‘package:ape’:
+
+    as.prop.part
+
+50 sequences with 200 character and 200 different site patterns.
+The states are a c g t 
+optimize edge weights:  -10064.83 --> -9991.96 
+optimize base frequencies:  -9991.96 --> -9362.058 
+optimize rate matrix:  -9362.058 --> -9328.86 
+optimize edge weights:  -9328.86 --> -9286.866 
+optimize topology:  -9286.866 --> -9268.582 
+optimize topology:  -9268.582 --> -9266.143 
+optimize topology:  -9266.143 --> -9265.556 
+10 
+optimize base frequencies:  -9265.556 --> -9254.732 
+optimize rate matrix:  -9254.732 --> -9245.25 
+optimize edge weights:  -9245.25 --> -9243.644 
+optimize topology:  -9243.644 --> -9243.487 
+optimize topology:  -9243.487 --> -9243.43 
+optimize topology:  -9243.43 --> -9243.429 
+2 
+optimize base frequencies:  -9243.429 --> -9240.046 
+optimize rate matrix:  -9240.046 --> -9237.883 
+optimize edge weights:  -9237.883 --> -9237.716 
+optimize topology:  -9237.716 --> -9237.716 
+0 
+optimize base frequencies:  -9237.716 --> -9236.619 
+optimize rate matrix:  -9236.619 --> -9236.078 
+optimize edge weights:  -9236.078 --> -9236.028 
+optimize base frequencies:  -9236.028 --> -9235.789 
+optimize rate matrix:  -9235.789 --> -9235.692 
+optimize edge weights:  -9235.692 --> -9235.68 
+optimize base frequencies:  -9235.68 --> -9235.636 
+optimize rate matrix:  -9235.636 --> -9235.62 
+optimize edge weights:  -9235.62 --> -9235.617 
+optimize base frequencies:  -9235.617 --> -9235.61 
+optimize rate matrix:  -9235.61 --> -9235.607 
+optimize edge weights:  -9235.607 --> -9235.607 
+optimize base frequencies:  -9235.607 --> -9235.606 
+optimize rate matrix:  -9235.606 --> -9235.605 
+optimize edge weights:  -9235.605 --> -9235.605 
+optimize base frequencies:  -9235.605 --> -9235.605 
+optimize rate matrix:  -9235.605 --> -9235.605 
+optimize edge weights:  -9235.605 --> -9235.605 
+optimize base frequencies:  -9235.605 --> -9235.605 
+optimize rate matrix:  -9235.605 --> -9235.605 
+optimize edge weights:  -9235.605 --> -9235.605 
+optimize base frequencies:  -9235.605 --> -9235.605 
+optimize rate matrix:  -9235.605 --> -9235.605 
+optimize edge weights:  -9235.605 --> -9235.605 
+
+ loglikelihood: -9235.605 
+
+unconstrained loglikelihood: -1059.663 
+
+Rate matrix:
+          a         c         g         t
+a 0.0000000 0.2251395 0.4174554 0.4593485
+c 0.2251395 0.0000000 0.7254793 0.6810699
+g 0.4174554 0.7254793 0.0000000 1.0000000
+t 0.4593485 0.6810699 1.0000000 0.0000000
+
+Base frequencies:  
+0.4157872 0.09162886 0.08192337 0.4106606 
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: ape
+Loading required package: parallel
+
+Attaching package: ‘phangorn’
+
+The following object is masked from ‘package:ape’:
+
+    as.prop.part
+
+50 sequences with 200 character and 200 different site patterns.
+The states are a c g t 
+optimize edge weights:  -10301.24 --> -10239.92 
+optimize base frequencies:  -10239.92 --> -9633.94 
+optimize rate matrix:  -9633.94 --> -9579.285 
+optimize edge weights:  -9579.285 --> -9531.322 
+optimize topology:  -9531.322 --> -9519.186 
+optimize topology:  -9519.186 --> -9510.376 
+optimize topology:  -9510.376 --> -9508.774 
+12 
+optimize base frequencies:  -9508.774 --> -9497.351 
+optimize rate matrix:  -9497.351 --> -9488.196 
+optimize edge weights:  -9488.196 --> -9487.333 
+optimize topology:  -9487.333 --> -9483.932 
+optimize topology:  -9483.932 --> -9483.761 
+optimize topology:  -9483.761 --> -9483.581 
+4 
+optimize base frequencies:  -9483.581 --> -9480.618 
+optimize rate matrix:  -9480.618 --> -9478.86 
+optimize edge weights:  -9478.86 --> -9478.776 
+optimize topology:  -9478.776 --> -9478.776 
+0 
+optimize base frequencies:  -9478.776 --> -9478.043 
+optimize rate matrix:  -9478.043 --> -9477.72 
+optimize edge weights:  -9477.72 --> -9477.697 
+optimize base frequencies:  -9477.697 --> -9477.555 
+optimize rate matrix:  -9477.555 --> -9477.503 
+optimize edge weights:  -9477.503 --> -9477.497 
+optimize base frequencies:  -9477.497 --> -9477.47 
+optimize rate matrix:  -9477.47 --> -9477.459 
+optimize edge weights:  -9477.459 --> -9477.457 
+optimize base frequencies:  -9477.457 --> -9477.453 
+optimize rate matrix:  -9477.453 --> -9477.451 
+optimize edge weights:  -9477.451 --> -9477.451 
+optimize base frequencies:  -9477.451 --> -9477.449 
+optimize rate matrix:  -9477.449 --> -9477.448 
+optimize edge weights:  -9477.448 --> -9477.448 
+optimize base frequencies:  -9477.448 --> -9477.448 
+optimize rate matrix:  -9477.448 --> -9477.448 
+optimize edge weights:  -9477.448 --> -9477.448 
+optimize base frequencies:  -9477.448 --> -9477.448 
+optimize rate matrix:  -9477.448 --> -9477.448 
+optimize edge weights:  -9477.448 --> -9477.448 
+optimize base frequencies:  -9477.448 --> -9477.448 
+optimize rate matrix:  -9477.448 --> -9477.448 
+optimize edge weights:  -9477.448 --> -9477.448 
+
+ loglikelihood: -9477.448 
+
+unconstrained loglikelihood: -1059.663 
+
+Rate matrix:
+          a         c         g         t
+a 0.0000000 0.1590018 0.3586859 0.4668099
+c 0.1590018 0.0000000 0.5116270 0.5921984
+g 0.3586859 0.5116270 0.0000000 1.0000000
+t 0.4668099 0.5921984 1.0000000 0.0000000
+
+Base frequencies:  
+0.404185 0.1093801 0.08815675 0.3982782 
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+Loading required package: ape
+
+Attaching package: ‘phangorn’
+
+The following object is masked from ‘package:ape’:
+
+    as.prop.part
+
+50 sequences with 200 character and 200 different site patterns.
+The states are a c g t 
+optimize edge weights:  -10244.56 --> -10170.82 
+optimize base frequencies:  -10170.82 --> -9489.973 
+optimize rate matrix:  -9489.973 --> -9467.697 
+optimize edge weights:  -9467.697 --> -9428.82 
+optimize topology:  -9428.82 --> -9419.58 
+optimize topology:  -9419.58 --> -9417.049 
+optimize topology:  -9417.049 --> -9415.422 
+10 
+optimize base frequencies:  -9415.422 --> -9404.228 
+optimize rate matrix:  -9404.228 --> -9398.587 
+optimize edge weights:  -9398.587 --> -9396.776 
+optimize topology:  -9396.776 --> -9396.72 
+optimize topology:  -9396.72 --> -9396.72 
+optimize topology:  -9396.72 --> -9396.72 
+3 
+optimize base frequencies:  -9396.72 --> -9395.479 
+optimize rate matrix:  -9395.479 --> -9394.966 
+optimize edge weights:  -9394.966 --> -9394.862 
+optimize topology:  -9394.862 --> -9394.862 
+0 
+optimize base frequencies:  -9394.862 --> -9394.671 
+optimize rate matrix:  -9394.671 --> -9394.582 
+optimize edge weights:  -9394.582 --> -9394.567 
+optimize base frequencies:  -9394.567 --> -9394.52 
+optimize rate matrix:  -9394.52 --> -9394.497 
+optimize edge weights:  -9394.497 --> -9394.493 
+optimize base frequencies:  -9394.493 --> -9394.478 
+optimize rate matrix:  -9394.478 --> -9394.468 
+optimize edge weights:  -9394.468 --> -9394.467 
+optimize base frequencies:  -9394.467 --> -9394.462 
+optimize rate matrix:  -9394.462 --> -9394.46 
+optimize edge weights:  -9394.46 --> -9394.46 
+optimize base frequencies:  -9394.46 --> -9394.458 
+optimize rate matrix:  -9394.458 --> -9394.457 
+optimize edge weights:  -9394.457 --> -9394.456 
+optimize base frequencies:  -9394.456 --> -9394.456 
+optimize rate matrix:  -9394.456 --> -9394.455 
+optimize edge weights:  -9394.455 --> -9394.455 
+optimize base frequencies:  -9394.455 --> -9394.455 
+optimize rate matrix:  -9394.455 --> -9394.455 
+optimize edge weights:  -9394.455 --> -9394.455 
+optimize base frequencies:  -9394.455 --> -9394.455 
+optimize rate matrix:  -9394.455 --> -9394.455 
+optimize edge weights:  -9394.455 --> -9394.455 
+
+ loglikelihood: -9394.455 
+
+unconstrained loglikelihood: -1059.663 
+
+Rate matrix:
+          a         c         g         t
+a 0.0000000 0.3335719 0.4896835 0.7288659
+c 0.3335719 0.0000000 0.7006009 1.0691666
+g 0.4896835 0.7006009 0.0000000 1.0000000
+t 0.7288659 1.0691666 1.0000000 0.0000000
+
+Base frequencies:  
+0.4062307 0.08992894 0.09553893 0.4083015 
+Loading required package: foreach
+Loading required package: doParallel
+Loading required package: iterators
+Loading required package: parallel
+[1] "GTR_sim_1.Rdata"
+[1] "GTR_sim_2.Rdata"
